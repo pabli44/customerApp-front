@@ -1,0 +1,27 @@
+<table class="table" *ngIf="listSize>0">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Salutation</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Adress Line 1</th>
+        <th scope="col">Adress Line 2</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let cu of customersList">
+      <tr>
+        <th scope="row">{{cu.customerId}}</th>
+        <td>{{cu.salutation}}</td>
+        <td>{{cu.lastName}}</td>
+        <td>{{cu.addressLine1}}</td>
+        <td>{{cu.addressLine2}}</td>
+        <td>
+            <button class="btn btn-info" [routerLink]="['/customers/detail', cu.customerId]">More...</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+<h1>
+    <span *ngIf="listSize==0">No Records</span>
+</h1>
