@@ -22,24 +22,7 @@ export class CustomerComponent {
     }, error => {
       this.customersList = this.customerService.customersList;
       this.listSize = this.customersList.length;
-      console.log(this.listSize);
     })
-  }
-
-  addStudent(){
-    this.router.navigate(['/students/add']);
-  }
-
-  editStudent=(cuIn:Customer)=>{
-    this.router.navigate(['/students/edit', cuIn.customerId]);
-  }
-
-  deleteStudent=(cuIn:Customer)=>{
-    this.customersList = this.customersList.filter(st => st.customerId!==cuIn.customerId);
-    this.listSize = this.customersList.length;
-    console.log("size: "+this.listSize);
-
-    this.customerService.deleteCustomer(cuIn.customerId).subscribe();
   }
 
 }
